@@ -44,31 +44,31 @@
         driver: local
     ```
 
-    -   `8080:8080` - connect local port 8080 to exposed internal HTTP
-        port 8080
-    -   `1883:1883` - connect local port 1883 to exposed internal MQTT
-        port 1883
-    -   `8883:8883` - connect local port 8883 to exposed internal MQTT
-        over SSL port 8883
-    -   `7070:7070` - connect local port 7070 to exposed internal Edge
-        RPC port 7070
-    -   `5683-5688:5683-5688/udp` - connect local UDP ports 5683-5688 to
-        exposed internal COAP - and LwM2M ports
-    -   `tb-postgres-data` - name of the docker volume that stores the
-        PostgreSQL's data
-    -   `thingsboard-ce` - friendly local name of the ThingsBoard
-        container
-    -   `restart: always` - automatically start ThingsBoard in case of
-        system reboot and - restart in case of failure.
-    -   image: "`thingsboard/tb-node:4.3.1.1`" - ThingsBoard docker
-        image and version.
+    - `8080:8080` - connect local port 8080 to exposed internal HTTP
+      port 8080
+    - `1883:1883` - connect local port 1883 to exposed internal MQTT
+      port 1883
+    - `8883:8883` - connect local port 8883 to exposed internal MQTT
+      over SSL port 8883
+    - `7070:7070` - connect local port 7070 to exposed internal Edge RPC
+      port 7070
+    - `5683-5688:5683-5688/udp` - connect local UDP ports 5683-5688 to
+      exposed internal COAP - and LwM2M ports
+    - `tb-postgres-data` - name of the docker volume that stores the
+      PostgreSQL's data
+    - `thingsboard-ce` - friendly local name of the ThingsBoard
+      container
+    - `restart: always` - automatically start ThingsBoard in case of
+      system reboot and - restart in case of failure.
+    - image: "`thingsboard/tb-node:4.3.1.1`" - ThingsBoard docker image
+      and version.
 
 3.  `docker compose run --rm -e INSTALL_TB=true -e LOAD_DEMO=true thingsboard-ce`
 
-    -   `INSTALL_TB=true` - Installs the core database schema and system
-        resources (widgets, images, rule chains, etc.).
-    -   `LOAD_DEMO=true` - Loads sample tenant account, dashboards and
-        devices for evaluation and testing.
+    - `INSTALL_TB=true` - Installs the core database schema and system
+      resources (widgets, images, rule chains, etc.).
+    - `LOAD_DEMO=true` - Loads sample tenant account, dashboards and
+      devices for evaluation and testing.
 
 4.  `docker compose up -d && docker compose logs -f thingsboard-ce`
 
@@ -78,6 +78,17 @@
 
     inloggegevens
 
-    -   System Administrator: `sysadmin@thingsboard.org` / `sysadmin`
-    -   Tenant Administrator: `tenant@thingsboard.org` / `tenant`
-    -   Customer User: `customer@thingsboard.org` / `customer`
+    - System Administrator: `sysadmin@thingsboard.org` / `sysadmin`
+    - Tenant Administrator: `tenant@thingsboard.org` / `tenant`
+    - Customer User: `customer@thingsboard.org` / `customer`
+
+5.  Voeg een tenant toe en een beheerder (volg tutorial van de site)
+
+6.  Voeg een meting toe:
+
+        mosquitto_pub -d -q 1 -h \
+            localhost \
+            -p 1883 \
+            -t v1/devices/me/telemetry \
+            -u "id8rv89upm207075mxrg" \
+            -m "{temperature:25}"

@@ -1,0 +1,34 @@
+# In dit bestand staat gespecificeerd
+# welke bestanden en mappen niet naar de
+# Git-repository moeten worden gecommit.
+#
+# Het gaat om bestanden die een tijdelijk
+# karakter hebben of op elke computer
+# anders zijn of gegenereerd worden.
+
+# De bestanden voor de virtual environement.
+# Deze kunnen op elke computer anders zijn.
+.venv
+
+# De bestanden die de inhoud van de SQLite-databases
+# bevatten. Deze worden gegenereerd en
+# zijn niet nodig om te delen.
+*.db*
+
+# Tijdelijke bestanden die door Python worden
+# gegenereerd, zoals cache-bestanden.
+**/__pycache__/
+.mypy_cache/
+
+# Bestanden voor specifieke configuraties
+# van IDEs  en eventuele plugins.
+.vscode/settings.json
+.idea/
+*.iml
+
+# Tijdelijke files van Office
+**/~$*
+# Tijdelijke bestanden van macOS
+**/.DS_Store
+
+.env
