@@ -1,6 +1,6 @@
 services:
   postgres:
-    restart: always
+    # restart: always
     image: "postgres:16"
     ports:
       - "5432"
