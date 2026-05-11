@@ -8,7 +8,7 @@ TB_HOST = "http://localhost:8080"
 ACCESS_TOKEN = "id8rv89upm207075mxrg"  # Vervang dit met het access token van je device
 
 # Aantal berichten
-AANTAL_BERICHTEN = 100
+AANTAL_BERICHTEN = 200
 INTERVAL_SECONDEN = 120
 
 
